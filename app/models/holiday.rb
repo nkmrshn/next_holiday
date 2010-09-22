@@ -4,16 +4,19 @@ class Holiday < ActiveRecord::Base
 
   class << self
     def tweet
+      today = Date.today
+      return if today.wday == 0 || today.wday == 6
+
       account = Account.first()
       return if account.nil?
 
-      prev_day = where(["holiday_at = ?", Date.today - 1]).first
+      prev_day = where(["holiday_at = ?", today - 1]).first
       return if prev_day.nil?
 
-      next_day = where(["holiday_at >= ?", Date.today]).first
+      next_day = where(["holiday_at >= ?", today]).first
       return if next_day.nil?
 
-      diff = next_day.holiday_at - Date.today
+      diff = next_day.holiday_at - today
       diff_name = "%d日後" % diff
       case diff
       when 0
