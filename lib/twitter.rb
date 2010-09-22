@@ -1,5 +1,4 @@
 require 'oauth'
-require 'rubytter'
 
 module Twitter
 
