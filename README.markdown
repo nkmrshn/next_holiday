@@ -1,7 +1,7 @@
 Next Holiday Twitter bot
 ========================
 
-This is the Next Holiday Twitter bot application for Japanese holiday. It will tweet when is the next Japanese holiday, if yesterday was a holiday.
+This Twitter bot is for Japanese holiday. It will tweet when is the next holiday in Japanese, if yesterday or previous week friday was a holiday.
 
 Preparation
 -----------
@@ -18,7 +18,7 @@ Preparation
 Installation
 ------------
 
-Run these commands:Run these commands:
+Run these commands:
 
     $ git clone git://github.com/nkmrshn/next_holiday.git
     $ cd next_holiday
@@ -30,4 +30,4 @@ Run these commands:Run these commands:
 
 Access to "http://localhost:3000/admin" by your web browser and authenticate the application. Please note the to re-authenticate, you have to delete the database record in the accounts table.
 
-Make cron job for every hour and run "rake cron". By default, the application will tweet when it was 11 o'clock. You can change this by modifing lib/tasks/cron.rake file.
+Make cron job for every hour and run "rake cron". By default, the application will tweet, when it was 11 o'clock. You can change this by modifing lib/tasks/cron.rake file.
