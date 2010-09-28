@@ -27,8 +27,6 @@ class Holiday < ActiveRecord::Base
 
       status = "前回の祝日は、%sでした。次の祝日は、%sの『%s』です。" % [prev_day.name, diff_name, next_day.name]
 
-      puts status
-      return 
       response = Twitter.access_token(account).post(
         '/statuses/update.json',
         { :status => status }
