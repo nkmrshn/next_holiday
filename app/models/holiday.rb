@@ -26,8 +26,8 @@ class Holiday < ActiveRecord::Base
         prev_day = Holiday.lastDay(today).first
       else
         prev_day = Holiday.prevDay(today).first
-        return if prev_day.nil?
       end
+      return if prev_day.nil?
 
       next_day = Holiday.nextDay(today).first
       return if next_day.nil?

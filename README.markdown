@@ -8,12 +8,12 @@ Preparation
 
 1. Create a Twitter account for the application.
 2. Access to "https://twitter.com/apps".
-2. Add a new application.
+3. Add a new application.
    - The application type is "Browser".
    - Don't forget the callback URL, which can be any.
    - The default access type is "Read & Write".
    - Check 'Yes, use Twitter for login' in the "use Twitter for login".
-3. Get the consumer key and consumer secret.
+4. Get the consumer key and consumer secret.
 
 Installation
 ------------
@@ -30,4 +30,12 @@ Run these commands:
 
 Access to "http://localhost:3000/admin" by your web browser and authenticate the application. Please note the to re-authenticate, you have to delete the database record in the accounts table.
 
+Usage
+-----
 Make cron job for every day and run "rake cron".
+
+or
+
+If you want to force to tweet, call "Holiday.tweet(true)" from Rails console or runner.
+
+    $ rails runner "Holiday.tweet(true)"
