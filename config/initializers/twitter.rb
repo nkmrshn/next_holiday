@@ -4,7 +4,7 @@ rescue
   twitter = {
     "consumer_key" => ENV['CONSUMER_KEY'],
     "consumer_secret" => ENV['CONSUMER_SECRET'],
-    "twitter_id" => ENV['TWITTER_ID']
+    "twitter_id" => ENV['TWITTER_ID'].to_i
   }
 ensure
   NextHoliday::Application.config.twitter_consumer_key = twitter["consumer_key"]
