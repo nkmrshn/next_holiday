@@ -44,7 +44,7 @@ class Holiday < ActiveRecord::Base
       status = "前回の祝日は、%sでした。次回は、%sの%s、『%s』です。" % [
         prev_day.name,
         diff_name,
-        next_day.holiday_at.strftime("%m/%d"),
+        next_day.holiday_at.to_s(:jp),
         next_day.name
       ]
 
