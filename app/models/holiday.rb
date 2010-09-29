@@ -15,15 +15,19 @@ class Holiday < ActiveRecord::Base
   }
 
   class << self
-    def tweet
+    def tweet(force = false)
       today = Date.today
-      return if today.wday == 0 || today.wday == 6
+      return if (today.wday == 0 || today.wday == 6) && force == false
 
       account = Account.first()
       return if account.nil?
 
-      prev_day = Holiday.prevDay(today).first
-      return if prev_day.nil?
+      if force
+        prev_day = Holiday.lastDay(today).first
+      else
+        prev_day = Holiday.prevDay(today).first
+        return if prev_day.nil?
+      end
 
       next_day = Holiday.nextDay(today).first
       return if next_day.nil?
