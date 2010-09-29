@@ -41,3 +41,16 @@ Next Holiday Twitter bot
 もしくは、強制的にツイートさせたい場合、Railsコンソールかランナーで"Holiday.tweet(true)"を実行してください。
 
     $ rails runner "Holiday.tweet(true)"
+
+その他
+------
+ 
+サーバにconfig/twitter.ymlを作成できない場合、config/initializers/twitter.rbは、環境変数を読もうとします。
+ 
+例えば[*Heroku*](http://heroku.com/)では、これらのコマンドを実行することによって環境変数を追加できます：
+ 
+    $ heroku config:add CONSUMER_KEY=<value>
+    $ heroku config.add CONSUMER_SECRET=<value>
+    $ heroku config:add TWITTER_ID=<value>
+
+詳しくは、[*Heroku | Config vars*](http://docs.heroku.com/config-vars)をご覧ください。 

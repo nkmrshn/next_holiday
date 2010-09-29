@@ -39,3 +39,16 @@ or
 If you want to force to tweet, call "Holiday.tweet(true)" from Rails console or runner.
 
     $ rails runner "Holiday.tweet(true)"
+
+Others
+------
+
+If you can't create config/twitter.yml in the server, config/initializers/twitter.rb will try to read environment variables.
+
+Example for [*Heroku*](http://heroku.com/), you can add environment variables by executing these commands:
+
+    $ heroku config:add CONSUMER_KEY=<value>
+    $ heroku config.add CONSUMER_SECRET=<value>
+    $ heroku config:add TWITTER_ID=<value>
+
+Please read [*Heroku | Config vars*](http://docs.heroku.com/config-vars) for more details.
