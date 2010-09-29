@@ -13,7 +13,7 @@ class TwitterController < ApplicationController
       return
     end
 
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def show
@@ -27,7 +27,7 @@ class TwitterController < ApplicationController
     session[:request_token_secret] = nil
 
     if params[:denied]
-      redirect_to '/'
+      redirect_to root_path
       return
     end
 
@@ -49,12 +49,12 @@ class TwitterController < ApplicationController
       user_info = JSON.parse(response.body)
       unless user_info['id']
         logger.error "Authentication failed"
-        redirect_to '/'
+        redirect_to root_path
         return
       end
     else
       logger.error "Failed to get account info via OAuth"
-      redirect_to '/'
+      redirect_to root_path
       return
     end
 
@@ -66,10 +66,10 @@ class TwitterController < ApplicationController
 
     if account.save
       logger.info "Saved account info via OAuth"
-      redirect_to '/'
     else
       logger.error "Failed to save account info via OAuth"
-      redirect_to '/'
     end
+
+    redirect_to root_path
   end
 end

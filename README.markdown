@@ -30,4 +30,4 @@ Run these commands:
 
 Access to "http://localhost:3000/admin" by your web browser and authenticate the application. Please note the to re-authenticate, you have to delete the database record in the accounts table.
 
-Make cron job for every hour and run "rake cron". By default, the application will tweet, when it was 11 o'clock. You can change this by modifing lib/tasks/cron.rake file.
+Make cron job for every day and run "rake cron".

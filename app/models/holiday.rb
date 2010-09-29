@@ -2,6 +2,18 @@ require 'twitter'
 
 class Holiday < ActiveRecord::Base
 
+  scope :prevDay , lambda { |today|
+    where(["holiday_at = ?", today - (today.wday == 1 ? 3 : 1)])
+  }
+
+  scope :lastDay, lambda { |today|
+    where(["holiday_at < ?", today]).order("holiday_at desc")
+  }
+
+  scope :nextDay , lambda { |today|
+    where(["holiday_at >= ?", today]).order("holiday_at")
+  }
+
   class << self
     def tweet
       today = Date.today
@@ -10,10 +22,10 @@ class Holiday < ActiveRecord::Base
       account = Account.first()
       return if account.nil?
 
-      prev_day = where(["holiday_at = ?", today - (today.wday == 1 ? 3 : 1)]).first
+      prev_day = Holiday.prevDay(today).first
       return if prev_day.nil?
 
-      next_day = where(["holiday_at >= ?", today]).first
+      next_day = Holiday.nextDay(today).first
       return if next_day.nil?
 
       diff = next_day.holiday_at - today
@@ -25,7 +37,12 @@ class Holiday < ActiveRecord::Base
         diff_name = "明日"
       end
 
-      status = "前回の祝日は、%sでした。次の祝日は、%sの『%s』です。" % [prev_day.name, diff_name, next_day.name]
+      status = "前回の祝日は、%sでした。次回は、%sの%s、『%s』です。" % [
+        prev_day.name,
+        diff_name,
+        next_day.holiday_at.strftime("%m/%d"),
+        next_day.name
+      ]
 
       response = Twitter.access_token(account).post(
         '/statuses/update.json',

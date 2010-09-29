@@ -31,4 +31,4 @@ Next Holiday Twitter bot
 
 ブラウザで"http://localhost:3000/admin"にアクセスし、このアプリの承認してください。もし、再承認する場合は、データベースのaccountsテーブルにあるレコードを削除してください。
 
-毎時、"rake cron"を実行するcronジョブを作成してください。デフォルトでは、 11時にツイートします。これは、lib/tasks/cron.rakeを編集することによって、修正することができます。
+毎日、"rake cron"を実行するcronジョブを作成してください。
