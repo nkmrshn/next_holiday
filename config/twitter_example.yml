@@ -6,6 +6,20 @@ consumer_secret:
 
 # This is optional, but it is recommended to specify
 # the Twitter ID. The OAuth callback will be validated,
-# if this Twitter account was used.
+# if this Twitter account was used. 
 #
 #twitter_id:
+
+# Please note that the Twitter ID is a decimal number.
+# It is NOT your username nor screen name.
+#
+# To obtain:
+# 1. Use Firefox and login to the Twitter.
+# 2. Click the RSS icon in the address bar
+# 3. Pick "Favorites Tweet"
+#
+# Your Twitter ID is the decimal number of the RSS
+# filename.
+#
+# https://twitter.com/favorites/1234567890.rss
+#                               ^^^^^^^^^^
