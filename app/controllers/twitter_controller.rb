@@ -52,6 +52,13 @@ class TwitterController < ApplicationController
         redirect_to root_path
         return
       end
+
+      twitter_id = NextHoliday::Application.config.twitter_id;
+      if !twitter_id.blank? && user_info['id'] != twitter_id
+        logger.error "You have logged in with different account which you specified in config/twitter.yml."
+        redirect_to root_path
+        return
+      end
     else
       logger.error "Failed to get account info via OAuth"
       redirect_to root_path

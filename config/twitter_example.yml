@@ -3,3 +3,9 @@
 
 consumer_key: 
 consumer_secret:
+
+# This is optional, but it is recommended to specify
+# the Twitter ID. The OAuth callback will be validated,
+# if this Twitter account was used.
+#
+#twitter_id:
