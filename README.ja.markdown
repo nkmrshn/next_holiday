@@ -45,6 +45,8 @@ Next Holiday Twitter bot
 その他
 ------
  
+1. 環境変数
+
 サーバにconfig/twitter.ymlを作成できない場合、config/initializers/twitter.rbは、環境変数を読もうとします。
  
 例えば[*Heroku*](http://heroku.com/)では、これらのコマンドを実行することによって環境変数を追加できます：
@@ -54,3 +56,11 @@ Next Holiday Twitter bot
     $ heroku config:add TWITTER_ID=<value>
 
 詳しくは、[*Heroku | Config vars*](http://docs.heroku.com/config-vars)をご覧ください。 
+
+2. セッション管理
+
+セッションはデータベースで管理しています。古いセッションのレコードは、"rake cron"でデータベースから削除します。
+
+3. Google Analytics (オプション)
+
+config/google_analytics.ymlあるいは、環境変数(GA_ACCOUNT, GA_DOMAIN_NAME)がある場合、Google AnalyticsのJavaScriptをheadタグ内に生成します。

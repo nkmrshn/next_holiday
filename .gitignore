@@ -10,3 +10,4 @@ doc/app
 *~
 .DS_Store
 config/twitter.yml
+config/google_analytcs.yml

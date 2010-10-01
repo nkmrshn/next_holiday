@@ -1,0 +1,7 @@
+# Please set your Google Analytics account.
+# If you need the domain name to specify,
+# set it also. Rename the file name to
+# "google_analytics.yml".
+
+account:
+domain_name:

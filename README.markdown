@@ -43,6 +43,8 @@ If you want to force to tweet, call "Holiday.tweet(true)" from Rails console or 
 Others
 ------
 
+1. Environment Variables
+
 If you can't create config/twitter.yml in the server, config/initializers/twitter.rb will try to read environment variables.
 
 Example for [*Heroku*](http://heroku.com/), you can add environment variables by executing these commands:
@@ -52,3 +54,11 @@ Example for [*Heroku*](http://heroku.com/), you can add environment variables by
     $ heroku config:add TWITTER_ID=<value>
 
 Please read [*Heroku | Config vars*](http://docs.heroku.com/config-vars) for more details.
+
+2. Session Management
+
+The session is managed by database. The rake task "rake cron" will delete old session records from the database.
+
+3. Google Analytics (Optional)
+
+If there was config/google_analytics.yml or environment variables(GA_ACCOUNT, GA_DOMAIN_NAME), the JavaScript for Google Analysis will render inside the head tag section.
