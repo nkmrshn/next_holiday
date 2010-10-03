@@ -1,1 +1,1 @@
-前回の祝日は、<%= @last_day.name %>でした。次回は、<%= @diff_name %>の<%= @next_day.holiday_at.to_s(:jp) %>、『<%= @next_day.name %>』です。
+前回の祝日は、<%= @last_day.holiday_at.to_s(:jp) %>の「<%= @last_day.name %>」でした。次回は、<%= @next_day.holiday_at.to_s(:jp) %>の『<%= @next_day.name %>』です。

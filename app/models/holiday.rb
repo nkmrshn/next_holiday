@@ -32,33 +32,14 @@ class Holiday < ActiveRecord::Base
       next_day = Holiday.nextDay(today).first
       return if next_day.nil?
 
-      diff = next_day.holiday_at - today
-      diff_name = "%d日後" % diff
-      case diff
-      when 0
-        return
-      when 1
-        diff_name = "明日"
-      end
-
-      status = "前回の祝日は、%sでした。次回は、%sの%s、『%s』です。" % [
+      status = "前回の祝日は、%sの「%s」でした。次回は、%sの『%s』です。" % [
+        prev_day.holiday_at.to_s(:jp),
         prev_day.name,
-        diff_name,
         next_day.holiday_at.to_s(:jp),
         next_day.name
       ]
 
-      response = Twitter.access_token(account).post(
-        '/statuses/update.json',
-        { :status => status }
-      )
-
-      case response
-      when Net::HTTPSuccess
-        logger.info "Posted"
-      else
-        logger.error "Failed to post status"
-      end
+      Twitter.updateStatus(account, status)
     end
   end
 end

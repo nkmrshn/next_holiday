@@ -18,5 +18,19 @@ module Twitter
     ) 
   end
 
-  module_function :consumer, :access_token
+  def updateStatus(account, status)
+    response = access_token(account).post(
+      '/statuses/update.json',
+      { :status => status }
+    )
+   
+    case response
+    when Net::HTTPSuccess
+      Rails.logger.info "Posted"
+    else
+      Rails.logger.error "Failed to post status"
+    end
+  end
+
+  module_function :consumer, :access_token, :updateStatus
 end
