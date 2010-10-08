@@ -3,7 +3,7 @@ require 'twitter'
 class Holiday < ActiveRecord::Base
 
   scope :prevDay, lambda { |today|
-    where(["holiday_at = ?", today - (today.wday == 1 ? 3 : 1)])
+    where(["holiday_at = ?", today])
   }
 
   scope :lastDay, lambda { |today|
@@ -11,13 +11,12 @@ class Holiday < ActiveRecord::Base
   }
 
   scope :nextDay, lambda { |today|
-    where(["holiday_at >= ?", today]).order("holiday_at")
+    where(["holiday_at > ?", today]).order("holiday_at")
   }
 
   class << self
     def tweet(force = false)
       today = Date.today
-      return if (today.wday == 0 || today.wday == 6) && force == false
 
       account = Account.first()
       return if account.nil?

@@ -1,7 +1,7 @@
 Next Holiday Twitter bot
 ========================
 
-このTwitter botは、日本の祝日を対象としています。このアプリは、前日もしくは前週の金曜日が祝日だった場合、次の祝日をツイートします。 
+このTwitter botは、日本の祝日を対象としています。このアプリは、次の祝日をツイートします。 
 
 ![Next Holiday](http://github.com/nkmrshn/next_holiday/raw/master/doc/next_holiday_example.png)
 

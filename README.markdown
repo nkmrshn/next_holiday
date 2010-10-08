@@ -1,7 +1,7 @@
 Next Holiday Twitter bot
 ========================
 
-This Twitter bot is for Japanese holiday. It will tweet "when is the next holiday" in Japanese, if yesterday or previous week friday was a holiday.
+This Twitter bot is for Japanese holiday. It will tweet "when is the next holiday" in Japanese.
 
 Preparation
 -----------
