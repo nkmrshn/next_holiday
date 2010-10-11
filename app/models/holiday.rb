@@ -16,7 +16,7 @@ class Holiday < ActiveRecord::Base
 
   class << self
     def tweet(force = false)
-      today = Date.today
+      today = Time.zone.today
 
       account = Account.first()
       return if account.nil?
