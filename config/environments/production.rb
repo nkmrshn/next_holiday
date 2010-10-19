@@ -53,13 +53,14 @@ NextHoliday::Application.configure do
   rescue
     mail_settings = { 
       "user_name" => ENV['MAIL_USER_NAME'],
-      "password" => ENV['MAIL_PASSWORD']
+      "password" => ENV['MAIL_PASSWORD'],
+      "domain" => ENV['MAIL_DOMAIN']
     }   
   ensure
     config.action_mailer.smtp_settings = { 
       :address => "smtp.gmail.com",
       :port => 587,
-      :domain => "wishshelf.jp",
+      :domain => mail_settings["domain"],
       :user_name => mail_settings["user_name"],
       :password => mail_settings["password"],
       :authentication => :plain,
