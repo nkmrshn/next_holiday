@@ -39,5 +39,10 @@ module NextHoliday
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.middleware.use ExceptionNotifier,
+      :email_prefix => "[Next Holiday Exception] ",
+      :sender_address => %{"Next Holiday" <next.holiday.jp@gmail.com>},
+      :exception_recipients => %w{nkmrshn@gmail.com}
   end
 end

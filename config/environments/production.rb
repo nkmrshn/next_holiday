@@ -46,4 +46,24 @@ NextHoliday::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.delivery_method = :smtp
+  begin
+    mail_settings = YAML.load(File.read(Rails.root.to_s + "/config/mail.yml"))
+  rescue
+    mail_settings = { 
+      "user_name" => ENV['MAIL_USER_NAME'],
+      "password" => ENV['MAIL_PASSWORD']
+    }   
+  ensure
+    config.action_mailer.smtp_settings = { 
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "wishshelf.jp",
+      :user_name => mail_settings["user_name"],
+      :password => mail_settings["password"],
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    }
+  end
 end
