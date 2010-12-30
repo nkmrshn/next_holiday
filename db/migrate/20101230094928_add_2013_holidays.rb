@@ -1,4 +1,4 @@
-class Add2013Holidays.rb < ActiveRecord::Migration
+class Add2013Holidays < ActiveRecord::Migration
   def self.up
     holidays = [ 
       { :name => "元旦",         :holiday_at => "2013/1/1"   },  
