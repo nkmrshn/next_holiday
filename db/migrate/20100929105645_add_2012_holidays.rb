@@ -16,7 +16,7 @@ class Add2012Holidays < ActiveRecord::Migration
       { :name => "体育の日",     :holiday_at => "2012/10/8"  },
       { :name => "文化の日",     :holiday_at => "2012/11/03" },
       { :name => "勤労感謝の日", :holiday_at => "2012/11/23" },
-      { :name => "天皇誕生日",   :holiday_at => "2012/12/23" }
+      { :name => "天皇誕生日",   :holiday_at => "2012/12/23" },
       { :name => "振替休日",     :holiday_at => "2012/12/24" }
     ]
 
