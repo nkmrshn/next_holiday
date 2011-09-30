@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @next_day = Holiday.nextDay(today).first
     respond_to do |format|
       format.html
-      format.json { render :json => [@last_day, @next_day] }
+      format.xml { render :xml => [@last_day, @next_day] }
     end
   end
 end
